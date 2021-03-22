@@ -10,10 +10,12 @@ const dirname = path.dirname(filename);
 
 app.set('view engine', 'pug');
 app.set('views', path.join(dirname, 'templates'));
-app.use(express.static(path.join(dirname, '../public')));
+app.use(express.static(path.join(dirname, '../../build')));
+
+console.log(dirname)
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('main');
 });
 
 app.listen(process.env.PORT || 3001, () => console.log('Server up'));
